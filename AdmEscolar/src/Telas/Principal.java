@@ -79,7 +79,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiRelatórioActionPerformed
 
     private void jmiAlterarInstituicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlterarInstituicaoActionPerformed
-        FormAlterarInstituicao novaInstituicao = new FormAlterarInstituicao();
+        TelaAlterarInstituicao novaInstituicao = new TelaAlterarInstituicao();
         jDesktop.add(novaInstituicao);
         novaInstituicao.setVisible(true);
     }//GEN-LAST:event_jmiAlterarInstituicaoActionPerformed

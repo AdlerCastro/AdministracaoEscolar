@@ -4,12 +4,20 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 abstract public class FormPadrao extends javax.swing.JInternalFrame {
+    
+    //Metodos abstratos da subclasse FormAlterarInstituicao
+    abstract public void inicializarComponentes();
+    abstract public void salvarVisao();
+    
+    
+    
     JLabel jlConsulta;
     JTextField jtfConsulta;
     
     public FormPadrao() {
         initComponents();
         HabilitaBotoes(true);
+        inicializarComponentes();
         
         // jLabel para consulta
         jlConsulta = new JLabel("Consulta");
@@ -194,6 +202,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
    
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
         HabilitaBotoes(true);
+        salvarVisao();
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltarActionPerformed
@@ -202,7 +211,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
 
     private void jbNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoActionPerformed
         HabilitaBotoes(false);
-        
+        limpaCampos();
     }//GEN-LAST:event_jbNovoActionPerformed
 
     private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
@@ -220,7 +229,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     }
     
     public void limpaCampos(){
-        
+        //jtfInstituicao.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -234,6 +243,6 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbVoltar;
     private javax.swing.JPanel jdmBotoes;
     private javax.swing.JPanel jpnConsulta;
-    private javax.swing.JPanel jpnFormulario;
+    public javax.swing.JPanel jpnFormulario;
     // End of variables declaration//GEN-END:variables
 }
