@@ -7,7 +7,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     
     //Metodos abstratos da subclasse FormAlterarInstituicao
     abstract public void inicializarComponentes();
-    abstract public void salvarVisao();
+    abstract public void salvarTela();
     
     
     
@@ -202,7 +202,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
    
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
         HabilitaBotoes(true);
-        salvarVisao();
+        salvarTela();
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltarActionPerformed
