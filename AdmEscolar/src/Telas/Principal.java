@@ -1,9 +1,12 @@
 package Telas;
 
+import javax.swing.JFrame;
+
 public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     @SuppressWarnings("unchecked")
@@ -19,6 +22,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administração Escolar");
+        setResizable(false);
 
         javax.swing.GroupLayout jDesktopLayout = new javax.swing.GroupLayout(jDesktop);
         jDesktop.setLayout(jDesktopLayout);
@@ -75,7 +79,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiRelatórioActionPerformed
 
     private void jmiAlterarInstituicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlterarInstituicaoActionPerformed
-        FormPadrao novaInstituicao = new FormPadrao();
+        FormAlterarInstituicao novaInstituicao = new FormAlterarInstituicao();
         jDesktop.add(novaInstituicao);
         novaInstituicao.setVisible(true);
     }//GEN-LAST:event_jmiAlterarInstituicaoActionPerformed

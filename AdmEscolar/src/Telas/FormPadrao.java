@@ -1,17 +1,33 @@
 package Telas;
 
-public class FormPadrao extends javax.swing.JInternalFrame {
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
+abstract public class FormPadrao extends javax.swing.JInternalFrame {
+    JLabel jlConsulta;
+    JTextField jtfConsulta;
+    
     public FormPadrao() {
         initComponents();
-        
         HabilitaBotoes(true);
+        
+        // jLabel para consulta
+        jlConsulta = new JLabel("Consulta");
+        jlConsulta.setBounds(9,5,50,25);
+        jpnConsulta.add(jlConsulta);
+        
+        //JTextField para consulta
+        jtfConsulta = new JTextField();
+        jtfConsulta.setBounds(60,5,600,25);
+        jpnConsulta.add(jtfConsulta);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jdmBotoes = new javax.swing.JPanel();
         jbNovo = new javax.swing.JButton();
         jbEditar = new javax.swing.JButton();
@@ -19,20 +35,24 @@ public class FormPadrao extends javax.swing.JInternalFrame {
         jbSalvar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
         jbExcluir = new javax.swing.JButton();
+        jpnFormulario = new javax.swing.JPanel();
         jpnConsulta = new javax.swing.JPanel();
-        jpnFormulario1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setMaximizable(true);
         setResizable(true);
-        setTitle("Central de Gerenciamento");
 
         jdmBotoes.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -93,7 +113,7 @@ public class FormPadrao extends javax.swing.JInternalFrame {
                 .addComponent(jbSalvar)
                 .addGap(18, 18, 18)
                 .addComponent(jbCancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -111,98 +131,53 @@ public class FormPadrao extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jpnConsulta.setBackground(new java.awt.Color(0, 255, 255));
+        jpnFormulario.setBackground(new java.awt.Color(153, 255, 255));
+
+        javax.swing.GroupLayout jpnFormularioLayout = new javax.swing.GroupLayout(jpnFormulario);
+        jpnFormulario.setLayout(jpnFormularioLayout);
+        jpnFormularioLayout.setHorizontalGroup(
+            jpnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jpnFormularioLayout.setVerticalGroup(
+            jpnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 218, Short.MAX_VALUE)
+        );
+
+        jpnConsulta.setBackground(new java.awt.Color(255, 102, 102));
 
         javax.swing.GroupLayout jpnConsultaLayout = new javax.swing.GroupLayout(jpnConsulta);
         jpnConsulta.setLayout(jpnConsultaLayout);
         jpnConsultaLayout.setHorizontalGroup(
             jpnConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 840, Short.MAX_VALUE)
         );
         jpnConsultaLayout.setVerticalGroup(
             jpnConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-        );
-
-        jpnFormulario1.setBackground(new java.awt.Color(153, 255, 255));
-
-        jLabel1.setText("Nome");
-
-        jLabel2.setText("Endereço");
-
-        jLabel3.setText("ID");
-
-        jLabel4.setText("Ano de Fundação");
-
-        javax.swing.GroupLayout jpnFormulario1Layout = new javax.swing.GroupLayout(jpnFormulario1);
-        jpnFormulario1.setLayout(jpnFormulario1Layout);
-        jpnFormulario1Layout.setHorizontalGroup(
-            jpnFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnFormulario1Layout.createSequentialGroup()
-                .addGroup(jpnFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnFormulario1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpnFormulario1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jpnFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addGroup(jpnFormulario1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(22, 22, 22))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpnFormulario1Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel1)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jpnFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jpnFormulario1Layout.setVerticalGroup(
-            jpnFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnFormulario1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpnFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpnFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpnFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpnFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(108, Short.MAX_VALUE))
+            .addGap(0, 292, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnFormulario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jpnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jdmBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpnFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jdmBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jdmBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jpnFormulario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jpnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jpnFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jpnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -216,17 +191,7 @@ public class FormPadrao extends javax.swing.JInternalFrame {
 
         HabilitaBotoes(true);
     }//GEN-LAST:event_jbCancelarActionPerformed
-
-    //Metodo para Habilitar ou Desabilitar botoes
-    private void HabilitaBotoes(boolean status){
-        jbNovo.setEnabled(status);
-        jbEditar.setEnabled(status);
-        jbExcluir.setEnabled(status);
-        
-        jbSalvar.setEnabled(!status);
-        jbCancelar.setEnabled(!status);
-    }
-            
+   
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
         HabilitaBotoes(true);
     }//GEN-LAST:event_jbSalvarActionPerformed
@@ -237,22 +202,30 @@ public class FormPadrao extends javax.swing.JInternalFrame {
 
     private void jbNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoActionPerformed
         HabilitaBotoes(false);
+        
     }//GEN-LAST:event_jbNovoActionPerformed
 
     private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
         HabilitaBotoes(false);
     }//GEN-LAST:event_jbEditarActionPerformed
 
+       //Metodo para Habilitar ou Desabilitar botoes
+    public void HabilitaBotoes(boolean status){
+        jbNovo.setEnabled(status);
+        jbEditar.setEnabled(status);
+        jbExcluir.setEnabled(status);
+        
+        jbSalvar.setEnabled(!status);
+        jbCancelar.setEnabled(!status);
+    }
+    
+    public void limpaCampos(){
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbEditar;
     private javax.swing.JButton jbExcluir;
@@ -261,6 +234,6 @@ public class FormPadrao extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbVoltar;
     private javax.swing.JPanel jdmBotoes;
     private javax.swing.JPanel jpnConsulta;
-    private javax.swing.JPanel jpnFormulario1;
+    private javax.swing.JPanel jpnFormulario;
     // End of variables declaration//GEN-END:variables
 }
