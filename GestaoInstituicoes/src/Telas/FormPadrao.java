@@ -7,8 +7,11 @@ package Telas;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class FormPadrao extends javax.swing.JInternalFrame {
+abstract public class FormPadrao extends javax.swing.JInternalFrame {
 
+    //Métodos abstratos da subclasse
+    abstract public void InicializarComponentes();
+    
     //Criando aspectos do Java Swing por Codificação
     JLabel jlConsulta;
     JTextField jtfConsulta;
@@ -17,6 +20,9 @@ public class FormPadrao extends javax.swing.JInternalFrame {
     public FormPadrao() {
         initComponents();
         HabilitarBotoes(true);
+        
+        //Inicializar componentes das subclasses
+        InicializarComponentes();
         
         jtfIDBD.setEnabled(false);
         jtfDescricao.setEnabled(false);
@@ -277,8 +283,8 @@ public class FormPadrao extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jlDescricao;
     private javax.swing.JLabel jlIDBD;
     private javax.swing.JPanel jpBotoes;
-    private javax.swing.JPanel jpnConsulta;
-    private javax.swing.JPanel jpnFormulario;
+    public javax.swing.JPanel jpnConsulta;
+    public javax.swing.JPanel jpnFormulario;
     private javax.swing.JTextField jtfDescricao;
     private javax.swing.JTextField jtfIDBD;
     // End of variables declaration//GEN-END:variables
