@@ -17,6 +17,29 @@ public class CadastroAlunoTela extends FormPadrao{
     JTextField jtfSerie;
     JTextField jtfDataInscricao;
     
+    private String Nome;
+    private String Matricula;
+    private String Serie;
+    private String DataInscricao;
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public String getMatricula() {
+        return Matricula;
+    }
+
+    public String getSerie() {
+        return Serie;
+    }
+
+    public String getDataInscricao() {
+        return DataInscricao;
+    }
+    
+    
+    
      public CadastroAlunoTela(){
         setTitle("Cadastro de Aluno");
     }
@@ -59,4 +82,20 @@ public class CadastroAlunoTela extends FormPadrao{
         jtfDataInscricao.setBounds(120, 170, 100, 25);
         jpnFormulario.add(jtfDataInscricao);
     }
+
+    @Override
+    public void salvarDadosInstituicao() {
+        this.Nome = jtfNomeAluno.getText();
+        this.Matricula = jtfMatricula.getText();
+        this.Serie = jtfSerie.getText();
+        this.DataInscricao = jtfDataInscricao.getText();
+        
+        System.out.println(" Nome: " + this.Nome + " Data de Inscrição: " +this.DataInscricao + " Série: " + this.Serie + " Matricula: " + this.Matricula);
+    }
+
+    @Override
+    public void limparCampos() {
+        
+    }
+
 }

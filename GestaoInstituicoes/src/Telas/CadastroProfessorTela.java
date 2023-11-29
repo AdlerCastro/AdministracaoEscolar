@@ -17,6 +17,27 @@ public class CadastroProfessorTela extends FormPadrao {
     JTextField jtfDisciplina;
     JTextField jtfDataContratacao;
     
+    private String Nome;
+    private String ID;
+    private String Disciplina;
+    private String DataContratacao;
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public String getDisciplina() {
+        return Disciplina;
+    }
+
+    public String getDataContratacao() {
+        return DataContratacao;
+    }
+    
     public CadastroProfessorTela(){
         setTitle("Cadastro de Professor");
     }
@@ -59,4 +80,21 @@ public class CadastroProfessorTela extends FormPadrao {
         jtfDataContratacao.setBounds(135, 170, 100, 25);
         jpnFormulario.add(jtfDataContratacao);
     }
+
+    @Override
+    public void salvarDadosInstituicao() {
+        this.Nome = jtfNomeProf.getText();
+        this.ID = jtfIdProfessor.getText();
+        this.Disciplina = jtfDisciplina.getText();
+        this.DataContratacao = jtfDataContratacao.getText();
+        
+        System.out.println("Nome: " + this.Nome + "Data de Contratação: " +this.DataContratacao + "Disciplina: " + this.Disciplina + "Id: " + this.ID);
+    }
+
+    @Override
+    public void limparCampos() {
+        
+    }
+
+
 }

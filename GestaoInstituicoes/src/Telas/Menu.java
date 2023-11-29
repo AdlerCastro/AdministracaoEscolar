@@ -1,8 +1,9 @@
 package Telas;
 
 public class Menu extends javax.swing.JFrame {
-
+    
     public Menu() {
+        
         initComponents();
     }
 
@@ -21,7 +22,8 @@ public class Menu extends javax.swing.JFrame {
         jmiProfessor = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jmiAluno = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        jmiCursos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciamento de Instituições");
@@ -31,11 +33,11 @@ public class Menu extends javax.swing.JFrame {
         jDesktop.setLayout(jDesktopLayout);
         jDesktopLayout.setHorizontalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 366, Short.MAX_VALUE)
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 112, Short.MAX_VALUE)
         );
 
         jmbCadastro.setText("Cadastro");
@@ -78,11 +80,17 @@ public class Menu extends javax.swing.JFrame {
         jmPessoas.add(jmiAluno);
 
         jmbCadastro.add(jmPessoas);
+        jmbCadastro.add(jSeparator5);
+
+        jmiCursos.setText("Cursos");
+        jmiCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCursosActionPerformed(evt);
+            }
+        });
+        jmbCadastro.add(jmiCursos);
 
         jMenuBar1.add(jmbCadastro);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -125,6 +133,12 @@ public class Menu extends javax.swing.JFrame {
         telaAluno.setVisible(true);
     }//GEN-LAST:event_jmiAlunoActionPerformed
 
+    private void jmiCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCursosActionPerformed
+        CadastroCursoTela telaCurso = new CadastroCursoTela();
+        jDesktop.add(telaCurso);
+        telaCurso.setVisible(true);
+    }//GEN-LAST:event_jmiCursosActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -136,15 +150,16 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktop;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JMenuItem jmInstituicao;
     private javax.swing.JMenu jmPessoas;
     private javax.swing.JMenu jmbCadastro;
     private javax.swing.JMenuItem jmiAluno;
+    private javax.swing.JMenuItem jmiCursos;
     private javax.swing.JMenuItem jmiDiretor;
     private javax.swing.JMenuItem jmiProfessor;
     // End of variables declaration//GEN-END:variables

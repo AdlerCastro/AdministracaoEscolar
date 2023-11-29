@@ -6,11 +6,25 @@ package Telas;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.util.*;
 
 abstract public class FormPadrao extends javax.swing.JInternalFrame {
 
+    private List<CadastroInstituicaoTela> Instituicoes = new ArrayList();
+    private List<CadastroDiretorTela> Diretores = new ArrayList();
+    private List<CadastroProfessorTela> Professores = new ArrayList();
+    private List<CadastroAlunoTela> Alunos = new ArrayList();
+    private List<CadastroCursoTela> Cursos = new ArrayList();
+    private static final String FILE_NAME = "escolas.ser";
+    private static final String FILE_NAME2 = "diretores.ser";
+    private static final String FILE_NAME3 = "professores.ser";
+    private static final String FILE_NAME4 = "alunos.ser";
+    private static final String FILE_NAME5 = "cursos.ser";
+    
     //Métodos abstratos da subclasse
     abstract public void InicializarComponentes();
+    abstract public void salvarDadosInstituicao();
+    abstract public void limparCampos();
     
     //Criando aspectos do Java Swing por Codificação
     JLabel jlConsulta;
@@ -18,6 +32,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     
     //Construtor
     public FormPadrao() {
+        
         initComponents();
         HabilitarBotoes(true);
         
@@ -28,14 +43,6 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         jtfDescricao.setEnabled(false);
         HabilitarCampos(false);
         
-        //JLabel && JTextField = Consulta
-        jlConsulta = new JLabel("Consulta:");
-        jlConsulta.setBounds(9,5,70,25);
-        jpnConsulta.add(jlConsulta);
-        
-        jtfConsulta = new JTextField();
-        jtfConsulta.setBounds(70, 5, 600, 25);
-        jpnConsulta.add(jtfConsulta);
     }
 
     @SuppressWarnings("unchecked")
@@ -55,6 +62,11 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         jlDescricao = new javax.swing.JLabel();
         jtfDescricao = new javax.swing.JTextField();
         jpnConsulta = new javax.swing.JPanel();
+        jbRelatorioInstituicao = new javax.swing.JButton();
+        jbRelatorioDiretores = new javax.swing.JButton();
+        jbRelatorioProfessores = new javax.swing.JButton();
+        jbRelatorioAlunos = new javax.swing.JButton();
+        jbRelatorioCursos = new javax.swing.JButton();
 
         setMaximizable(true);
         setTitle("Cadastro");
@@ -181,15 +193,69 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
 
         jpnConsulta.setBackground(new java.awt.Color(255, 255, 153));
 
+        jbRelatorioInstituicao.setText("Relatório Instituicao");
+        jbRelatorioInstituicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRelatorioInstituicaoActionPerformed(evt);
+            }
+        });
+
+        jbRelatorioDiretores.setText("Relatório Diretores");
+        jbRelatorioDiretores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRelatorioDiretoresActionPerformed(evt);
+            }
+        });
+
+        jbRelatorioProfessores.setText("Relatório Professores");
+        jbRelatorioProfessores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRelatorioProfessoresActionPerformed(evt);
+            }
+        });
+
+        jbRelatorioAlunos.setText("Relatório Alunos");
+        jbRelatorioAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRelatorioAlunosActionPerformed(evt);
+            }
+        });
+
+        jbRelatorioCursos.setText("Relatório Cursos");
+        jbRelatorioCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRelatorioCursosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpnConsultaLayout = new javax.swing.GroupLayout(jpnConsulta);
         jpnConsulta.setLayout(jpnConsultaLayout);
         jpnConsultaLayout.setHorizontalGroup(
             jpnConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jpnConsultaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jpnConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbRelatorioInstituicao, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRelatorioDiretores, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRelatorioProfessores, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRelatorioAlunos, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbRelatorioCursos, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         jpnConsultaLayout.setVerticalGroup(
             jpnConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 166, Short.MAX_VALUE)
+            .addGroup(jpnConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbRelatorioInstituicao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbRelatorioDiretores)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbRelatorioProfessores)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbRelatorioAlunos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbRelatorioCursos)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,7 +288,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         HabilitarCampos(true);
         //Focar na caixa de texto ao pressionar
         jtfDescricao.requestFocus();
-        LimparCampos();
+        limparCampos();
     }//GEN-LAST:event_jbNovoActionPerformed
 
     private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
@@ -238,18 +304,42 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
         HabilitarBotoes(true);
         HabilitarCampos(false);
-        LimparCampos();
+        salvarDadosInstituicao();
+        
+        
+        limparCampos();
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
         HabilitarBotoes(true);
         HabilitarCampos(false);
-        LimparCampos();
+        limparCampos();
     }//GEN-LAST:event_jbCancelarActionPerformed
 
     private void jtfIDBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIDBDActionPerformed
         
     }//GEN-LAST:event_jtfIDBDActionPerformed
+
+    private void jbRelatorioInstituicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRelatorioInstituicaoActionPerformed
+        Relatorio.gerarRelatorio(Instituicoes);
+        
+    }//GEN-LAST:event_jbRelatorioInstituicaoActionPerformed
+
+    private void jbRelatorioDiretoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRelatorioDiretoresActionPerformed
+        Relatorio.gerarRelatorio2(Diretores);
+    }//GEN-LAST:event_jbRelatorioDiretoresActionPerformed
+
+    private void jbRelatorioProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRelatorioProfessoresActionPerformed
+        Relatorio.gerarRelatorio3(Professores);
+    }//GEN-LAST:event_jbRelatorioProfessoresActionPerformed
+
+    private void jbRelatorioAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRelatorioAlunosActionPerformed
+        Relatorio.gerarRelatorio4(Alunos);
+    }//GEN-LAST:event_jbRelatorioAlunosActionPerformed
+
+    private void jbRelatorioCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRelatorioCursosActionPerformed
+        Relatorio.gerarRelatorio5(Cursos);
+    }//GEN-LAST:event_jbRelatorioCursosActionPerformed
     
     //Metodo para habilitar os botoes
     public void HabilitarBotoes(boolean Status){
@@ -266,26 +356,26 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         jtfDescricao.setEnabled(Status);
     }
     
-    //Metodo para limpar os campos
-    public void LimparCampos(){
-        jtfDescricao.setText("");
-    }
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jbCancelar;
-    private javax.swing.JButton jbEditar;
-    private javax.swing.JButton jbExcluir;
-    private javax.swing.JButton jbFechar;
-    private javax.swing.JButton jbNovo;
-    private javax.swing.JButton jbSalvar;
+    public javax.swing.JButton jbCancelar;
+    public javax.swing.JButton jbEditar;
+    public javax.swing.JButton jbExcluir;
+    public javax.swing.JButton jbFechar;
+    public javax.swing.JButton jbNovo;
+    public javax.swing.JButton jbRelatorioAlunos;
+    public javax.swing.JButton jbRelatorioCursos;
+    public javax.swing.JButton jbRelatorioDiretores;
+    public javax.swing.JButton jbRelatorioInstituicao;
+    public javax.swing.JButton jbRelatorioProfessores;
+    public javax.swing.JButton jbSalvar;
     private javax.swing.JLabel jlDescricao;
     private javax.swing.JLabel jlIDBD;
     private javax.swing.JPanel jpBotoes;
     public javax.swing.JPanel jpnConsulta;
     public javax.swing.JPanel jpnFormulario;
-    private javax.swing.JTextField jtfDescricao;
-    private javax.swing.JTextField jtfIDBD;
+    public javax.swing.JTextField jtfDescricao;
+    public javax.swing.JTextField jtfIDBD;
     // End of variables declaration//GEN-END:variables
+
 }

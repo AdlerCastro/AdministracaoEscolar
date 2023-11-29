@@ -15,6 +15,22 @@ public class CadastroDiretorTela extends FormPadrao{
     JTextField jtfDataContratacao;
     JTextField jtfIdDiretor;
     
+    private String Nome;
+    private String DataContratacao;
+    private String ID;
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public String getDataContratacao() {
+        return DataContratacao;
+    }
+
+    public String getID() {
+        return ID;
+    }
+    
     public CadastroDiretorTela(){
         setTitle("Cadastro de Diretor");
     }
@@ -48,5 +64,20 @@ public class CadastroDiretorTela extends FormPadrao{
         jtfIdDiretor.setBounds(135, 140, 100, 25);
         jpnFormulario.add(jtfIdDiretor);
     }
-    
+
+    @Override
+    public void salvarDadosInstituicao() {
+        this.Nome = jtfNomeDiretor.getText();
+        this.DataContratacao  = jtfDataContratacao.getText();
+        this.ID = jtfIdDiretor.getText();
+        
+        System.out.println(" Nome: " + this.Nome + " Ano Contratção: " +this.DataContratacao + " Id: " + this.ID);
+    }
+
+    @Override
+    public void limparCampos() {
+        
+    }
+
+  
 }
